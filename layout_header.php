@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>后台管理系统234sgfrdhdf</title>
+    <title>后台管理系统</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,header-user-scalable=no"/>
     <meta content="telephone=no,email=no" name="format-detection" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
@@ -29,7 +29,7 @@
         body{font-family: "Microsoft YaHei","Arial",sans-serif;color:#464646;}
 
         /*头部*/
-        .header{height:60px;padding:0 20px;background:#f5f5f5;border-bottom:1px solid #e6e6e6;}
+        .header{height:60px;padding:0 20px;background:#f5f5f5;border-bottom:1px solid #e6e6e6;position: fixed;top: 0;width: 100%;z-index: 20}
         .header-logo{display:block;float:left;height: 100%;}
         .header-logo img{vertical-align: middle;margin-top: 10px;}
 
@@ -37,7 +37,7 @@
         .header-user img{display:inline-block;vertical-align: middle;}
         .header-user p{display:inline-block;padding:0 10px;}
         .header-user span{display:inline-block;width:10px;height:10px;background:url(img/icon_arrow.png) no-repeat center;}
-        
+
         .header-user-name{display:inline-block;cursor:pointer;}
         .header-user-avatar {width: 45px;height: 45px;}
         .header-user-more {display:none;position:absolute;top:45px;right:20px;width:100px;border:1px solid #e4e4e4;border-radius:3px;background:#fff;color: #000;text-align: left;  }
@@ -62,19 +62,19 @@
         /*侧边栏*/
 
 
-        .aside{width:220px;position:fixed;height:100%;top:60px;bottom:0;left:0;background:#444d58;border-right:1px solid #e6e6e6;z-index: 102;overflow-x: hidden;}
+        .aside{width:220px;position:fixed;height:100%;top:61px;bottom:0;left:0;background:#444d58;border-right:1px solid #e6e6e6;z-index: 102;overflow-x: hidden;}
         .aside-con{height: 100%; overflow: auto;overflow-x: hidden;}
         .aside-head{height:60px;line-height:60px;color:#fff;background:url(img/icon_menu_arrow.png) no-repeat 192px;border-bottom:1px solid #353b45;}
 
-        .aside span{display:block;text-indent:55px;}
+        .aside span{display:block;text-indent:55px;cursor: pointer}
 
         .aside-body{display:none;}
-        .aside-body a{display:block;width:100%;line-height:41px;text-indent:55px;color:#9ca3ac;background:#353b45;}
-        .aside-body a:hover{color:#fff;background:#777f89;}
+        .aside-body a{display:block;width:100%;line-height:41px;text-indent:55px;color:#9ca3ac;background:#353b45;cursor: pointer}
+        .aside-body a:hover,.aside-body a.cur{color:#fff;background:#777f89;}
         .aside-sy{background:url(img/user.png) no-repeat 20px center;}
 
 
-        .content {margin-left: 240px;margin-top: 10px;margin-right: 20px;margin-bottom: 20px;}
+        .content {margin: 10px 20px 20px 240px;padding-top: 61px}
 
     </style>
 
