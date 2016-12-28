@@ -9,7 +9,7 @@ include "layout_header.php";
 
 ?>
 <div class="x-panel">
-    <div class="x-panel-title">消息：</div>
+    <div class="x-panel-title">tsggg</div>
     <div class="x-panel-content">
 
         <p>示例：</p>
