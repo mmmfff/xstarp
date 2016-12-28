@@ -46,6 +46,10 @@ include "layout_header.php";
             默认按钮
         </span>
 
+        <a class="x-button x-button-middle">
+            <i class="iconfont icon-baobei"></i>带符号按钮
+        </a>
+
 
         <p>规则:</p>
 </div>

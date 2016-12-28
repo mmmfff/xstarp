@@ -1,16 +1,14 @@
-//全局变量    主题
-$baseColorMain:#3399CC;
-$baseColorSecond:#336699;
-$baseColorThird:#99CC33;
-$fontColorDeep:#111111;
-$fontColorLight:#fff;
-$borderColorDeep:#555;
-$borderColorLight:#666;
-$bgColorDeep:#ccc;
-$bgColorLight:#fff;
 
+//成套css
+@mixin opacity($opacity:50) {
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}
 
-$radiusLevel:8px;
+@mixin inlineBlock() {
+  display: inline-block;
+  vertical-align: top;
+}
 
 
 //函数
@@ -21,6 +19,24 @@ $radiusLevel:8px;
     @return $fontColorDeep;
   }
 }
+
+
+//全局变量    主题
+$baseColorMain:#3399CC;
+$baseColorSecond:#336699;
+$baseColorThird:#99CC33;
+$fontColorDeep:#111111;
+$fontColorLight:#fff;
+$borderColorDeep:#666;
+$borderColorLight:#ddd;
+$bgColorDeep:#ccc;
+$bgColorLight:#f4f4f4;
+
+
+$radiusLevel:8px;
+
+
+
 
 
 //颜色数组
@@ -81,12 +97,17 @@ $fontSizeUnit: px;
 
 //样式-按钮
 .x-button {display: inline-block;background-color: $baseColorMain;border: 2px solid $borderColorDeep;color:set-notification-text-color($baseColorMain);border-radius: 5px;cursor: pointer;}
+.x-button:hover{background-color:darken($baseColorMain,10%)}
 .x-button-large {padding: 10px 20px;}
 .x-button-middle {padding: 5px 10px;}
 .x-button-small {padding: 2px 4px;}
 @each $key, $value in $colors {
   .x-button-#{$key} {background-color:$value;border: 2px solid darken($value,10%);color:set-notification-text-color($value);}
+  .x-button-#{$key}:hover{background-color:darken($value,20%);border: 2px solid darken($value,20%);}
 }
+
+.x-button i{margin-right:10px;}
+
 
 //结构-面板
 .x-panel {
@@ -94,12 +115,11 @@ $fontSizeUnit: px;
   overflow: auto;
   border: {
     top: {
-      left-radius: $radiusLevel;
-      //right-radius: $radiusLevel;
+      //left-radius: $radiusLevel;
+      right-radius: $radiusLevel;
     }
   }
 }
-
 .x-panel-title {background-color: $baseColorThird;font-size: 20px;color: set-notification-text-color($baseColorThird);padding: 10px;}
 .x-panel-content {padding: 10px;}
 
@@ -108,14 +128,64 @@ $fontSizeUnit: px;
 .x-title {font-size: 20px;border-bottom: 1px solid $borderColorLight;width: 100%;display: inline-block;}
 
 
+//结构-标签
+.x-tab-nav{border-bottom:1px solid #ddd;}
+.x-tab-nav li{display:inline-block;margin-bottom:-1px;}
+.x-tab-nav li a{display:block;padding:5px 10px;color:#333;}
+.x-tab-nav li.x-active a{color:#026b9c;background:#fff;border-radius:5px 5px 0 0;border:1px solid $borderColorLight;border-bottom-color:transparent;}
+.x-tab-contents{padding:10px;border-bottom:1px solid $borderColorLight;}
+.x-tab-content{display:none;}
+.x-tab-content.x-active{display:block;}
+
+
+//结构-导航
+.x-nav{width:180px;color:$fontColorLight}
+.x-nav-head{display:block;height:45px;line-height:45px;padding-left:10px;font-size:16px;background:#444d58;}
+.x-nav-body{display:none;}
+.x-nav-body a{display:block;height:35px;line-height:35px;padding-left:10px;background:#353b45;color:#9ca3ac;font-size:#{$baseFontSize}$fontSizeUnit;cursor:pointer;}
+.x-nav-body a:hover{background:#777f89;color:$fontColorLight;}
+
+
+//样式-表单元素
+.x-form-item input{ padding: 1px 5px;   border-radius: 3px; border: 1px solid $borderColorDeep; height: 25px;}
+.x-form-item{margin-top: 20px;}
+.x-form-submit{padding: 3px 10px;margin-bottom: 20px;}
+
+
+//样式-分页器
+.x-page {line-height: 28px;}
+.x-page-total {@include inlineBlock;}
+.x-page-pages {@include inlineBlock;float: right;border-right: 1px solid $borderColorDeep;color: $baseColorMain;}
+.x-page-pages li,.x-page-pages select{float: left;padding:0 15px;border: 1px solid $borderColorDeep;border-right: none;cursor: pointer;}
+.x-page-pages select{height: 30px;}
+.x-page-pages .x-active,.x-page-pages li:hover{color:set-notification-text-color($baseColorMain);background: $baseColorMain;}
 
 
 
-//成套css
-@mixin opacity($opacity:50) {
-  opacity: $opacity / 100;
-  filter: alpha(opacity=$opacity);
-}
+//插件-图片操作图标
+.x-imgView-recover{background:url("../sprite/square.png") no-repeat}
+.x-imgView-magnify{background:url("../sprite/enlarge.png") no-repeat}
+.x-imgView-shrink{background:url("../sprite/narrow.png") no-repeat}
+.x-imgView-rotate{background:url("../sprite/Refresh_1.png") no-repeat}
+.x-imgView-left{background:url("../sprite/Left.png") no-repeat}
+.x-imgView-right{background:url("../sprite/right.png") no-repeat}
+.x-imgView-close{background:url("../sprite/close_1.png") no-repeat}
+.x-imgView-loading{background:url("../img/load.gif") no-repeat}
+
+//插件-表格
+.x-table{width:100%;border-collapse: collapse;margin:20px 0;}
+.x-table thead {background:$bgColorLight;}
+.x-table th,.x-table td{height:36px;border:1px solid $borderColorLight;font-size:#{$baseFontSize}$fontSizeUnit;}
+.x-table-interval tr:nth-child(even) > td{background:$bgColorLight;}
+.x-table-hover tr:hover{background: $bgColorLight;}
+
+
+//封装-图标
+.x-icon-list{padding:10px;}
+.x-icon-list li{display:inline-block;vertical-align:top;width:80px;height:100px;padding:10px 0;text-align:center;background:#f9f9f9;}
+.x-icon-list li i,.x-icon-list li span{display:block;}
+
+
 
 //todo 结构写好几个   code插件套进来   主题变化的实现(圆角 颜色)
 

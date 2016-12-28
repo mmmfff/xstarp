@@ -273,48 +273,44 @@
         });
 
 
-        ctrl_recover=$('<span>').appendTo(view_ctrl);
+        ctrl_recover=$('<span class="x-imgView-recover">').appendTo(view_ctrl);
         ctrl_recover.css({
             'display':'inline-block',
             'width':'22px',
             'height':'19px',
             'margin':'10px',
-            'cursor':'pointer',
-            'background':'url("./src/img/imgView/square.png") no-repeat'
+            'cursor':'pointer'
         });
 
-        ctrl_magnify=$('<span>').appendTo(view_ctrl);
+        ctrl_magnify=$('<span class="x-imgView-magnify">').appendTo(view_ctrl);
         ctrl_magnify.css({
             'display':'inline-block',
             'width':'22px',
             'height':'20px',
             'margin':'10px',
-            'cursor':'pointer',
-            'background':'url("./src/img/imgView/enlarge.png") no-repeat'
+            'cursor':'pointer'
         });
 
-        ctrl_shrink=$('<span>').appendTo(view_ctrl);
+        ctrl_shrink=$('<span class="x-imgView-shrink">').appendTo(view_ctrl);
         ctrl_shrink.css({
             'display':'inline-block',
             'width':'21px',
             'height':'20px',
             'margin':'10px',
-            'cursor':'pointer',
-            'background':'url("./src/img/imgView/narrow.png") no-repeat'
+            'cursor':'pointer'
         });
 
-        ctrl_rotate=$('<span>').appendTo(view_ctrl);
+        ctrl_rotate=$('<span class="x-imgView-rotate">').appendTo(view_ctrl);
         ctrl_rotate.css({
             'display':'inline-block',
             'width':'20px',
             'height':'20px',
             'margin':'10px',
-            'cursor':'pointer',
-            'background':'url("./src/img/imgView/Refresh_1.png") no-repeat'
+            'cursor':'pointer'
         });
 
 
-        ctrl_left=$('<span>').appendTo(view);
+        ctrl_left=$('<span class="x-imgView-left">').appendTo(view);
         ctrl_left.css({
             'display':'inline-block',
             'position':'absolute',
@@ -322,11 +318,10 @@
             'height':'43px',
             'left':'1%',
             'top':'48%',
-            'cursor':'pointer',
-            'background':'url("./src/img/imgView/Left.png") no-repeat'
+            'cursor':'pointer'
         });
 
-        ctrl_right=$('<span>').appendTo(view);
+        ctrl_right=$('<span class="x-imgView-right">').appendTo(view);
         ctrl_right.css({
             'display':'inline-block',
             'position':'absolute',
@@ -334,11 +329,10 @@
             'height':'43px',
             'cursor':'pointer',
             'right':'1%',
-            'top':'48%',
-            'background':'url("./src/img/imgView/right.png") no-repeat'
+            'top':'48%'
         });
 
-        ctrl_close=$('<span>').appendTo(dialog);
+        ctrl_close=$('<span class="x-imgView-close">').appendTo(dialog);
         ctrl_close.css({
             'display':'inline-block',
             'position':'absolute',
@@ -346,19 +340,20 @@
             'height':'30px',
             'cursor':'pointer',
             'right':'-14px',
-            'top':'0',
-            'background':'url("./src/img/imgView/close_1.png") no-repeat'
+            'top':'0'
         });
 
-        loading=$('<img>').appendTo(view);
+
+        loading=$('<span class="x-imgView-loading">').appendTo(view);
         loading.css({
             'position':'absolute',
             'top':'48%',
             'left':'50%',
+            'width':'40px',
+            'height':'40px',
             'margin-left':'-30px',
             'display':'none'
         });
-        loading.prop('src','./src/img/imgView/load.gif');
 
 
     }
@@ -463,16 +458,21 @@
     };
 
 
-
-    //自动定义
-    $('body').on('click','.x-imgView .x-imgView-item',function (){
-        init();
-        imgs = [];
-        $.each($(this).parent().children(),function (i){
-            imgs[i]=$(this).attr('x-imgView-src');
+    $(document).ready(function(){
+        //自动定义
+        $('body').on('click','.x-imgView .x-imgView-item',function (){
+            init();
+            imgs = [];
+            $.each($(this).parent().children(),function (i){
+                imgs[i]=$(this).attr('x-imgView-src');
+            });
+            showImg(index=$(this).index());
         });
-        showImg(index=$(this).index());
+
+
     });
+
+
 
 
 });

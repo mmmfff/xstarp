@@ -13,7 +13,7 @@ include "layout_header.php";
 <style>
     td,th {border: 1px solid black;}
 </style>
-
+<script type="text/javascript" src="./src/js/imgView.js"></script>
 
 
 <p class="x-font-24 x-title">图片播放器:</p>
@@ -159,28 +159,42 @@ include "layout_header.php";
         <p class="x-color-orange">规则:</p>
         <p>1.xImgView 方法来调用</p>
         <p>2.option 是参数</p>
-        <table>
-            <tr>
-                <th>属性</th>
-                <th>类型</th>
-                <th>实例</th>
-                <th>作用</th>
-                <th>默认值</th>
-            </tr>
-            <tr>
-                <td>imgs</td>
-                <td>数组</td>
-                <td>['./img/a1.png','./img/a2.png','./img/a3.png']</td>
-                <td>要播放的图片</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>infoDom</td>
-                <td>html string</td>
-                <td>&lt;p>123&lt;/p></td>
-                <td>左边的图片简介</td>
-                <td></td>
-            </tr>
+        <table class="x-table x-table-interval">
+            <thead>
+                <tr>
+                    <th>属性</th>
+                    <th>类型</th>
+                    <th>实例</th>
+                    <th>作用</th>
+                    <th>默认值</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>imgs</td>
+                    <td>数组</td>
+                    <td>['./img/a1.png','./img/a2.png','./img/a3.png']</td>
+                    <td>要播放的图片</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>infoDom</td>
+                    <td>html/string</td>
+                    <td>&lt;p>123&lt;/p></td>
+                    <td>左边的图片简介</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>onSwitch</td>
+                    <td>函数</td>
+                    <td>function(index){}</td>
+                    <td>点击图片时会触发</td>
+                    <td></td>
+                </tr>
+            </tbody>
+
+
         </table>
 
 
@@ -195,7 +209,6 @@ include "layout_footer.php";
 ?>
 
 
-<script type="text/javascript" src="src/js/imgview.js"></script>
 
 <script>
 
